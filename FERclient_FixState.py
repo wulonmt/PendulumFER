@@ -117,7 +117,7 @@ class MountainCarFixPosClient(fl.client.NumPyClient):
             self.model.learning_rate = config["learning_rate"]
         print(f"Training learning rate: {self.model.learning_rate}")
         # Train the agent
-        self.model.learn(total_timesteps=int(2e3),
+        self.model.learn(total_timesteps=int(5e3),
                          tb_log_name=(self.log_name + f"/round_{self.n_round}" if self.n_round>9 else self.log_name + f"/round_0{self.n_round}") if self.log_name is not None else None ,
                          reset_num_timesteps=False,
                          )
