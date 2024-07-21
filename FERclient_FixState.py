@@ -66,8 +66,8 @@ class MountainCarFixPosClient(fl.client.NumPyClient):
                     gamma=0.99,
                     verbose=1,
                     target_kl=0.2,
-                    ent_coef=0.3,
-                    kl_coef=0.3,
+                    ent_coef=0.1,
+                    kl_coef=0.,
                     vf_coef=0.8,
                     tensorboard_log=self.tensorboard_log,
                     use_advantage = True,
@@ -81,7 +81,7 @@ class MountainCarFixPosClient(fl.client.NumPyClient):
         
         if args.save_log == "True":
             description = args.log_name if args.log_name != "auto" else \
-                        f"multiagent_targetkl{self.model.target_kl:.1e}_entcoef{self.model.ent_coef:.1e}_vfcoef{self.model.vf_coef:.1e}"
+                        f"multiagent_targetkl{self.model.target_kl:.1e}_entcoef{self.model.ent_coef:.1e}_klcoef{self.model.kl_coef:.1e}"
             self.log_name = f"{client_index}_{description}"
         else:
             self.log_name = None
