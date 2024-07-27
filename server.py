@@ -18,8 +18,8 @@ parser.add_argument("-p", "--port", help="local port", type=str, default="8080")
 args = parser.parse_args()
 
 def main():
-    total_rounds = 5
-    clients = 2
+    total_rounds = 20
+    clients = 4
     # Decorated strategy
     strategy = FedAvg(min_fit_clients=clients,
                       min_evaluate_clients=clients,
